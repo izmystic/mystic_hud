@@ -8,8 +8,8 @@
     <body>
         <div id="hud-container">
             <div id="streetlabel">| <a id="dir-text"> {{direction}} </a> | <a id="street-text">{{street}}</a></div>
-            <div id="postal">Nearest Postal <a id="postal-text">{{postal}}</a></div>
-            <div id="aop-pt">AOP: <a id="aop-text">{{aop}}</a> | Peacetime: <a id="pt-text">{{peacetime}}</a></div>
+            <div id="postal">Nearest Postal: <a id="postal-text">{{postal}}</a></div>
+            <div id="aop-pt">AOP: <a id="aop-text">{{aop}}</a> | Peacetime: <a id="pt-text" :style="{color: peacetimeColor}">{{peacetime}}</a></div>
         </div>
     </body>
 </html>

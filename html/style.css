@@ -1,77 +1,67 @@
 @font-face {
-    font-family: "ChaletComprime-CologneSixty";
-    src: local('Chalet Comprime Cologne Sixty'), local('Chalet-Comprime-Cologne-Sixty'),
-        url('fonts/ChaletComprime-CologneSixty.woff2') format('woff2'),
-        url('fonts/ChaletComprime-CologneSixty.woff') format('woff'),
-        url('fonts/ChaletComprime-CologneSixty.ttf') format('truetype');
+  font-family: "ChaletComprime-CologneSixty";
+  src: local("Chalet Comprime Cologne Sixty"),
+    local("Chalet-Comprime-Cologne-Sixty"),
+    url("fonts/ChaletComprime-CologneSixty.woff2") format("woff2"),
+    url("fonts/ChaletComprime-CologneSixty.woff") format("woff"),
+    url("fonts/ChaletComprime-CologneSixty.ttf") format("truetype");
 }
 
 body {
-    font-family: 'ChaletComprime-CologneSixty';
-    font-style: normal;
-    font-weight: light;
-    font-size: 27px;
-    text-shadow:
-        -1px -1px 0 rgba(0,0,0,0.6),
-        0 -1px 0 rgba(0,0,0,0.6),
-        1px -1px 0 rgba(0,0,0,0.6),
-        1px 0 0 rgba(0,0,0,0.6),
-        1px 1px 0 rgba(0,0,0,0.6),
-        0 1px 0 rgba(0,0,0,0.6),
-        -1px 1px 0 rgba(0,0,0,0.6),
-        -1px 0 0 rgba(0,0,0,0.6);
+  font-family: "ChaletComprime-CologneSixty";
+  font-style: normal;
+  font-weight: light;
+  font-size: 27px;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(0, 0, 0, 0.6),
+    1px -1px 0 rgba(0, 0, 0, 0.6), 1px 0 0 rgba(0, 0, 0, 0.6),
+    1px 1px 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(0, 0, 0, 0.6),
+    -1px 1px 0 rgba(0, 0, 0, 0.6), -1px 0 0 rgba(0, 0, 0, 0.6);
 }
 
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    background: transparent;
-    min-height: 100vh;
-    min-width: 100vw;
-    overflow: hidden;
-    position: relative;
+  background: transparent;
+  min-height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+  position: relative;
 }
 
 #hud-container {
-    position: absolute;
-    left: 16%;
-    bottom: 1.5%;
+  position: absolute;
+  left: 16%;
+  bottom: 1.5%;
 }
 
 #streetlabel {
-    color: #8B8B8B;
+  color: #78716c;
 }
 
 #dir-text {
-    color: #8365E0;
+  color: #06b6d4;
 }
 
 #street-text {
-    color: white;
+  color: #fafafa;
 }
 
-
 #postal {
-    color: #8365E0;
+  color: #06b6d4;
 }
 
 #postal-text {
-    color: white;
+  color: #fafafa;
 }
 
-
 #aop-pt {
-    color: #8365E0;
+  color: #06b6d4;
 }
 
 #aop-text {
-    color: white;
-}
-
-#pt-text {
-    color: #DE3232;
+  color: #fafafa;
 }
