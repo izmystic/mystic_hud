@@ -1,12 +1,14 @@
 const hud = Vue.createApp({
   data() {
     return {
+      show: false,
       direction: "",
       street: "",
       postal: "",
       aop: "",
       peacetime: "",
-      peacetimeColor: "#b91c1c",
+      primaryColor: "",
+      secondaryColor: "",
     };
   },
   destroyed() {
@@ -21,17 +23,18 @@ const hud = Vue.createApp({
   },
   methods: {
     updateHud(data) {
+      this.show = data.show;
       this.direction = data.direction;
       this.street = data.street;
       this.postal = data.postal;
       this.aop = data.aop;
       this.peacetime = data.peacetime;
+      this.primaryColor = data.primaryColor;
+      this.secondaryColor = data.secondaryColor;
       if (data.peacetime) {
         this.peacetime = "Enabled";
-        this.peacetimeColor = "#15803d";
       } else {
         this.peacetime = "Disabled";
-        this.peacetimeColor = "#b91c1c";
       }
     },
   },

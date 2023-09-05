@@ -11,12 +11,8 @@ lib.addCommand('aop', {
     restricted = 'group.staff'
 }, function(source, args, raw)
     aop = raw:sub(4)
-    TriggerClientEvent("chat:addMessage", -1, {
-        templateId = 'ccChat',
-        multiline = false,
-        args = { '#0384FC', 'fa-solid fa-globe', 'AOP', '', 'AOP is now ' .. aop }
-    })
     TriggerClientEvent('setAOP', -1, aop)
+    TriggerClientEvent('ox_lib:notify', -1, { description = ('AOP has been set to %s'):format(aop), type = 'inform' })
 end)
 
 lib.addCommand('pt', {
@@ -26,18 +22,10 @@ lib.addCommand('pt', {
     if not peacetime then
         peacetime = true
         TriggerClientEvent('togglePT', -1, peacetime)
-        TriggerClientEvent("chat:addMessage", -1, {
-            templateId = 'ccChat',
-            multiline = false,
-            args = { '#0384FC', 'fa-solid fa-globe', 'Peacetime', '', 'Peacetime is now enabled' }
-        })
+        TriggerClientEvent('ox_lib:notify', -1, { description = 'Peacetime is now enabled', type = 'success' })
     elseif peacetime then
         peacetime = false
         TriggerClientEvent('togglePT', -1, peacetime)
-        TriggerClientEvent("chat:addMessage", -1, {
-            templateId = 'ccChat',
-            multiline = false,
-            args = { '#0384FC', 'fa-solid fa-globe', 'Peacetime', '', 'Peacetime is now disabled' }
-        })
+        TriggerClientEvent('ox_lib:notify', -1, { description = 'Peacetime is now disabled', type = 'error' })
     end
 end)
