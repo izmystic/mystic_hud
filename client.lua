@@ -1,6 +1,3 @@
-local AOP = Config.AOP
-local peacetime = Config.Peacetime
-
 local function getDirection(heading)
     if ((heading >= 0 and heading < 45) or (heading >= 315 and heading < 360)) then
         return 'N'
@@ -29,12 +26,17 @@ local function disableControls()
     DisableControlAction(0, 257, true) -- melee
 end
 
-RegisterNetEvent('setAOP', function(newAOP)
-    AOP = newAOP
+AddEventHandler('onClientMapStart', function()
+    TriggerServerEvent('mystic_hud:server:setAOP')
+    TriggerServerEvent('mystic_hud:server:togglePT')
 end)
 
-RegisterNetEvent('togglePT', function(newPeacetime)
-    peacetime = newPeacetime
+RegisterNetEvent('mystic_hud:client:sendAOP', function(newAOP)
+    Config.AOP = newAOP
+end)
+
+RegisterNetEvent('mystic_hud:server:togglePT', function(newPeacetime)
+    Config.Peacetime = newPeacetime
 end)
 
 CreateThread(function()
@@ -65,12 +67,12 @@ CreateThread(function()
             direction = getDirection(GetEntityHeading(player)),
             street = street,
             postal = exports['nearest-postal']:getPostal(), -- replacing with internal logic
-            aop = AOP,
-            peacetime = peacetime,
+            aop = Config.AOP,
+            peacetime = Config.Peacetime,
             primaryColor = Config.primaryColor,
             secondaryColor = Config.secondaryColor
         })
-        if peacetime then
+        if Config.Peacetime then
             sleep = 1
             disableControls()
         end

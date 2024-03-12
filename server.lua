@@ -1,5 +1,3 @@
-local peacetime = Config.Peacetime
-
 lib.addCommand('aop', {
     help = 'sets aop',
     params = {
@@ -8,24 +6,33 @@ lib.addCommand('aop', {
             help = 'location for aop'
         }
     },
-    restricted = 'group.staff'
+    restricted = true
 }, function(source, args, raw)
-    aop = raw:sub(4)
-    TriggerClientEvent('setAOP', -1, aop)
-    TriggerClientEvent('ox_lib:notify', -1, { description = ('AOP has been set to %s'):format(aop), type = 'inform' })
+    Config.AOP = raw:sub(4)
+    TriggerEvent('mystic_hud:server:setAOP')
+    TriggerClientEvent('ox_lib:notify', -1, { description = ('AOP has been set to %s'):format(Config.AOP), type = 'inform' })
 end)
 
 lib.addCommand('pt', {
     help = 'toggles peacetime',
-    restricted = 'group.staff'
+    restricted = true
 }, function(source, args, raw)
-    if not peacetime then
-        peacetime = true
-        TriggerClientEvent('togglePT', -1, peacetime)
+    if not Config.Peacetime then
+        Config.Peacetime = true
+        TriggerEvent('mystic_hud:server:togglePT')
         TriggerClientEvent('ox_lib:notify', -1, { description = 'Peacetime is now enabled', type = 'success' })
-    elseif peacetime then
-        peacetime = false
-        TriggerClientEvent('togglePT', -1, peacetime)
+    elseif Config.Peacetime then
+        Config.Peacetime = false
+        TriggerEvent('mystic_hud:server:togglePT')
         TriggerClientEvent('ox_lib:notify', -1, { description = 'Peacetime is now disabled', type = 'error' })
     end
+end)
+
+
+RegisterServerEvent('mystic_hud:server:setAOP', function()
+    TriggerClientEvent('mystic_hud:client:sendAOP', -1, Config.AOP)
+end)
+
+RegisterServerEvent('mystic_hud:server:togglePT', function()
+    TriggerClientEvent('mystic_hud:client:sendPT', -1, Config.Peacetime)
 end)
