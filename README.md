@@ -9,4 +9,4 @@ AIO streetlabel, nearest postal, aop, and pt hud
 
 ## screenshot
 
-![](https://cdn.discordapp.com/attachments/1139697716901978196/1146492983408066670/image.png)
+![image](https://github.com/izmystic/mystic_hud/assets/72127044/3d0aaa9d-5486-42c5-bb45-79bb2877eb52)
